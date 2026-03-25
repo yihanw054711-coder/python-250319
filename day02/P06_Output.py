@@ -43,3 +43,6 @@ num2 = 3.14
 #要求：指定名字必须得相同
 str1 = f"{num1 = },{num2 = }"
 print(str1)
+
+str3 = f"{{num1 =}},{{num2 =}}"
+print(str3)
