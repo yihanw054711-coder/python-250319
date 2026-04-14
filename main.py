@@ -14,6 +14,3 @@ if __name__ == '__main__':
     print_hi('PyCharm')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
-import torch
-print(torch.__version__)
-print(torch.backends.mps.is_available())
