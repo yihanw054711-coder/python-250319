@@ -159,24 +159,32 @@
 # print(num2 in numbers)
 
 #~~~~~~~~~~~~~~身份运算符~~~~~~~~~~~~~
-m = 20
-n = 20
-q = 30
-print(m is n)  # True 判断m和n在内存中是否指向同一个地址
-print(n is q)  # False
-print(n is not q)  # True
-# id() 用于获取对象在内存中的地址
-print(id(m) == id(n)) # True
+# m = 20
+# n = 20
+# q = 30
+# print(m is n)  # True 判断m和n在内存中是否指向同一个地址
+# print(n is q)  # False
+# print(n is not q)  # True
+# # id() 用于获取对象在内存中的地址
+# print(id(m) == id(n)) # True
+#
+# print("-" * 30)
+# # -------------is和==的区别---------------
+# a = [1,2,3]
+# b = a
+#
+# print(b is a)  # True
+# print(b == a)  # True
+#
+# b = a[:]
+# print(b)
+# print(b is a)  # False
+# print(b == a)  # True
 
-print("-" * 30)
-# -------------is和==的区别---------------
-a = [1,2,3]
-b = a
+import sys;print(sys.path) #没有问题，但不建议
 
-print(b is a)  # True
-print(b == a)  # True
+import sys
+for i in sys.path:
+    print(i) #没有问题
 
-b = a[:]
-print(b)
-print(b is a)  # False
-print(b == a)  # True
+# import sys;for i in sys.path:;print(i) # 报错
