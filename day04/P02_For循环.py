@@ -8,7 +8,7 @@
 #遍历字符串
 str1 = "hello world"
 for x in str1:
-    print(x,end = "\r")
+    print(x,end = " ")
 #遍历range数列
-for x in range(10):
-    print(x)
+# for x in range(10):
+#     print(x)
