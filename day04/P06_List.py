@@ -122,11 +122,14 @@ list1 = [100, 200, 300, 400, 500]
 list1 = [1, 2, 3, 4, 5, 6, 7]
 list2 = ["a", "b", "c", "d", "e"]
 zipped = zip(list1, list2)
-print(zipped)
-print(type(zipped))
-print(list(zipped))
-for item in zipped:
-    print(item)
+# print(zipped)
+# print(type(zipped))
+# print(list(zipped))
+print(dict(zipped))
+# for item in zipped:
+#     print(item)
+
+
 
 
 

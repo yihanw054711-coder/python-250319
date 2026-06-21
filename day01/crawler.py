@@ -1,3 +1,5 @@
+import os
+import sys
 import requests
 import pandas as pd
 import time
@@ -28,11 +30,58 @@ headers = {
 }
 
 # -------------------------- 2. 发送请求 --------------------------
+# 禁用环境代理（避免系统或 CI 配置的代理导致 ProxyError）
+for k in ("HTTP_PROXY","HTTPS_PROXY","http_proxy","https_proxy"):
+    os.environ.pop(k, None)
+
 try:
     print("正在从东方财富网获取实时数据...")
-    response = requests.get(url, params=params, headers=headers, timeout=10)
-    response.raise_for_status()  # 抛出 HTTP 错误状态码
-    data = response.json()  # 直接解析为 JSON 字典
+    from requests.adapters import HTTPAdapter
+    from urllib3.util.retry import Retry
+
+    s = requests.Session()
+    s.trust_env = False  # 不使用环境代理
+
+    # 更完整的浏览器请求头，模拟真实浏览器
+    headers_full = headers.copy()
+    headers_full.update({
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "zh-CN,zh;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Connection": "keep-alive",
+        "Cache-Control": "no-cache",
+        "Pragma": "no-cache",
+    })
+
+    # 重试策略：对常见临时错误重试
+    retries = Retry(total=3, backoff_factor=1, status_forcelist=[429, 502, 503, 504], allowed_methods=["GET"]) 
+    adapter = HTTPAdapter(max_retries=retries)
+    s.mount("https://", adapter)
+    s.mount("http://", adapter)
+
+    # 尝试原始 host，若被拒可尝试去掉前缀数字（CDN 节点）作为回退
+    attempt_urls = [url]
+    if "68.push2.eastmoney.com" in url:
+        attempt_urls.append(url.replace("68.push2.eastmoney.com", "push2.eastmoney.com"))
+
+    response = None
+    data = None
+    for u in attempt_urls:
+        try:
+            print(f"尝试 URL: {u}")
+            response = s.get(u, params=params, headers=headers_full, timeout=10)
+            print(f"HTTP {response.status_code} 返回，body 预览:\n{response.text[:500]}")
+            response.raise_for_status()
+            data = response.json()
+            break
+        except requests.exceptions.RequestException as e:
+            print(f"URL {u} 请求失败: {e}")
+            # 如果是 RemoteDisconnected，继续尝试下一个回退 host
+            continue
+
+    if data is None:
+        # 所有尝试失败，抛出以进入上层 except 处理并退出非零码
+        raise requests.exceptions.RequestException("所有尝试均失败，请检查网络、被封或接口变更")
 
     # -------------------------- 3. 解析数据 --------------------------
     # 提取核心数据列表
@@ -84,7 +133,10 @@ try:
 
 except requests.exceptions.RequestException as e:
     print(f"网络请求失败: {e}")
+    sys.exit(1)
 except KeyError as e:
     print(f"数据解析失败，可能接口已更新: {e}")
+    sys.exit(1)
 except Exception as e:
     print(f"程序异常: {e}")
+    sys.exit(1)
