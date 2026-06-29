@@ -4,7 +4,11 @@
 cube 函数接受一个整数参数，通过调用 square 函数返回该数的立方（立方 = 平方 × 该数）。
 调用 cube 函数计算 3 的立方。
 """
-
+def square(num):
+    return num * num
+def cube(num):
+    return num * square(num)
+print(cube(3))
 
 
 """
