@@ -30,5 +30,5 @@ str1 = "hello"
 print("h" in str1)
 # 原始字符串
 str1 = r"hello\t\tworld"
-str1 = R"hello\t\tworld"
+str1 = "hello\t\tworld"  # \t表示横向制表符
 print(str1)

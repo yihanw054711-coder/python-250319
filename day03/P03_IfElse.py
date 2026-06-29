@@ -14,5 +14,6 @@ price = 50
 if balance < price:
     print("余额不足，请充值")
 else:
-    print("消费成功")
+    balance -= price
+    print(f"消费成功，余额{balance}元")
 print("欢迎下次光临")

@@ -13,9 +13,9 @@ else:
     print(f"第{week}周有{rabbit}只兔子")
 
 # 打印进度条
-# import time
-# num = 1
-# while num <= 100:
-#     print("\r" + "=" * num, end = "") # \r 回到行首
-#     num += 1
-#     time.sleep(0.5)
+import time
+num = 1
+while num <= 10:
+    print("\r" + "=" * num, end = "") # \r 回到行首
+    num += 1
+    time.sleep(0.5)

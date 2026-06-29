@@ -75,27 +75,27 @@
 # | 按位或，连接两个条件，两个条件至少满足一个时结果为True
 # ^ 按位异或，连接两个条件，两个条件满足一个时结果为True
 # ~ 按位取反，取反
-# num1 = 17
-# num2 = 13
-# print(f"正数与运算: {num1} & {num2}")
-# print(f"{num1:3} : {num1:08b}")# :3表示数字的宽度为3位(默认用空格填充），08b表示数字的二进制宽度为8位（不满8位则用0填充）
-# print(f"{num2:3} : {num2:08b}")
-# print(f"{num1 & num2:3} : {num1 & num2:08b}")
-# print()
-# print(f"正数或运算: {num1} | {num2}")
-# print(f"{num1:3} : {num1:08b}")
-# print(f"{num2:3} : {num2:08b}")
-# print(f"{num1 | num2:3} : {num1 | num2:08b}")
-# print()
-# print(f"正数异或运算: {num1} ^ {num2}")
-# print(f"{num1:3} : {num1:08b}")
-# print(f"{num2:3} : {num2:08b}")
-# print(f"{num1 ^ num2:3} : {num1 ^ num2:08b}")
-# print()
-# print(f"非运算: ~{num1}")
-# print(f"{num1:3}原码: {num1:08b}")
-# print(f"{num1:3}取反: {(1 << 8) - 1 ^ num1:08b}，得到结果的补码")# 1 << 8 - 1，得到补码的符号位
-# print(f"{~num1:3}原码: {~num1:08b}，计算出结果的原码")
+num1 = 17
+num2 = 13
+print(f"正数与运算: {num1} & {num2}")
+print(f"{num1:3} : {num1:08b}")# :3表示数字的宽度为3位(默认用空格填充），08b表示数字的二进制宽度为8位（不满8位则用0填充）
+print(f"{num2:3} : {num2:08b}")
+print(f"{num1 & num2:3} : {num1 & num2:08b}")
+print()
+print(f"正数或运算: {num1} | {num2}")
+print(f"{num1:3} : {num1:08b}")
+print(f"{num2:3} : {num2:08b}")
+print(f"{num1 | num2:3} : {num1 | num2:08b}")
+print()
+print(f"正数异或运算: {num1} ^ {num2}")
+print(f"{num1:3} : {num1:08b}")
+print(f"{num2:3} : {num2:08b}")
+print(f"{num1 ^ num2:3} : {num1 ^ num2:08b}")
+print()
+print(f"非运算: ~{num1}")
+print(f"{num1:3}原码: {num1:08b}")
+print(f"{num1:3}取反: {(1 << 8) - 1 ^ num1:08b}，得到结果的补码")# 1 << 8 - 1，得到补码的符号位
+print(f"{~num1:3}原码: {~num1:08b}，计算出结果的原码")
 #
 # num1 = 17
 # num2 = 13

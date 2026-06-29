@@ -27,8 +27,8 @@ def sum(num1,num2):
 result = sum(1,2)
 print(result)
 """
-def func(a,b,c):
-    return a,b,c,[a,b,c]
-res = func(1, 2, 3)
-print(res)
-print(id(res))
+# def func(a,b,c):
+#     return a,b,c,[a,b,c]
+# res = func(1, 2, 3)
+# print(res)
+# print(id(res))

@@ -72,7 +72,7 @@ my_dict = {"name": "Alice", "age": 81, "gender": "male", "address": "earth"}
 # del my_dict
 
 # dict.pop(key[,default])	获取key所对应的value，同时删除该键值对，可设置默认值
-# print(my_dict.pop("age"))
+# print(my_dict.pop("country"))
 # print(my_dict.pop("country", "unknown"))
 
 # dict.popitem()	取出字典中的最后插入的键值对，字典为空则报错
@@ -84,11 +84,11 @@ dict2 = {"language" : "English"}
 # print(my_dict)
 
 # dict.setdefault(key[,default])	获取字典中key对应value，可设置默认值。若key不存在于字典中，将会添加key并将value设为默认值
-dict2.setdefault("zr", "aaa")
-print(dict2)
+# dict2.setdefault("zr", "aaa")
+# print(dict2)
 
 # dict.fromkeys(seq[,default])	以序列seq中元素做字典的key创建一个新字典，可设置value的默认值
-dict3 = dict.fromkeys(range(5))
+dict3 = dict.fromkeys(range(5), None)
 print(dict3)
 
 
