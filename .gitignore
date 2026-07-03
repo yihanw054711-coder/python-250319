@@ -25,3 +25,12 @@ env/
 # OS
 .DS_Store
 Thumbs.db
+
+# 尚硅谷教程文档(体积大+版权)
+*.docx
+*.xlsx
+~$*
+*.pptx
+
+# 临时输出文件
+day*/output.txt

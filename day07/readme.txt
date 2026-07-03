@@ -1,4 +1,9 @@
 
+def 函数名(参数列表):
+    函数体
+    return 返回值
+
+函数名（实参）
 
 1. 函数的嵌套
     在函数的内部调用了其他函数
@@ -33,3 +38,13 @@
 
 6.匿名函数
     lamda表达式创建的函数称为匿名函数，匿名函数没有函数名，使用lambda关键字定义。
+
+    def func(x, y):
+        return x + y
+
+    lambda x, y:x+y
+
+    def cal(x, y, func):
+        return func(x, y)
+
+    cal(x, y, lambda x, y:x+y)
