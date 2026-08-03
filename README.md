@@ -3,7 +3,7 @@
 学习代码与练习记录
 
 [![Python](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](3.code/LICENSE)
 
 本仓库记录我从零开始学习 Python 的完整历程，按天（day）组织，涵盖从基础语法到面向对象、异常处理、模块化的核心知识点。目标是打好编程基础，为进一步学习**数据结构与算法、机器学习、深度学习**做准备。
 
@@ -69,11 +69,11 @@ python-250319/
 
 ## 🤝 贡献
 
-这是个人学习仓库，欢迎交流建议，详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+这是个人学习仓库，欢迎交流建议，详见 [CONTRIBUTING.md](3.code/CONTRIBUTING.md)。
 
 ## 📄 许可证
 
-本项目采用 [MIT License](LICENSE) 开源。
+本项目采用 [MIT License](3.code/LICENSE) 开源。
 
 ---
 
